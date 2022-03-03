@@ -55,7 +55,7 @@ function Employees() {
           {/*Table data to excel download */}
           <ReactHTMLTableToExcel
             id="test-table-xls-button"
-            className="download-table-xls-button btn btn-success mb-3"
+            className="download-table-xls-button btn btn-success"
             table="table-to-convert"
             filename="employeedata"
             sheet="employeerecords"
