@@ -42,7 +42,7 @@ function Employees() {
       <Row className="mt-2">
         <h1>Employees</h1>
       </Row>
-      <Row className="mt-2">
+      <Row className="mt-2 align-items-center">
         <Col xs={8}>
           <Link to="/create-employee">
             <Button>
@@ -50,70 +50,75 @@ function Employees() {
             </Button>
           </Link>
         </Col>
-
-        <Col xs={2}>
-          {/*Table data to excel download */}
-          <ReactHTMLTableToExcel
-            id="test-table-xls-button"
-            className="download-table-xls-button btn btn-success"
-            table="table-to-convert"
-            filename="employeedata"
-            sheet="employeerecords"
-            buttonText="Data2Excel"
-          />
-        </Col>
-        <Col xs={2}>
-          <Button onClick={downloadPdf}>Data2Pdf</Button>
-        </Col>
+        {employeeList.length === 0 ? null : (
+          <>
+            <Col xs={2}>
+              {/*Table data to excel download */}
+              <ReactHTMLTableToExcel
+                id="test-table-xls-button"
+                className="download-table-xls-button btn btn-success"
+                table="table-to-convert"
+                filename="employeedata"
+                sheet="employeerecords"
+                buttonText="Data2Excel"
+              />
+            </Col>
+            <Col xs={2}>
+              <Button onClick={downloadPdf}>Data2Pdf</Button>
+            </Col>
+          </>
+        )}
       </Row>
-      <Row className="mt-5">
-        <Card>
-          <Card.Body>
-            <Card.Header>
-              <b>Employee Details</b>
-            </Card.Header>
+      {employeeList.length === 0 ? null : (
+        <Row className="mt-5">
+          <Card>
+            <Card.Body>
+              <Card.Header>
+                <b>Employee Details</b>
+              </Card.Header>
 
-            <Table
-              responsive
-              bordered
-              hover
-              variant="success"
-              id="table-to-convert"
-            >
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Gender</th>
-                  <th>Employee ID</th>
-                  <th>Email</th>
-                  <th>Department</th>
-                  <th>Address</th>
-                  <th>Joining Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                {employeeList.map((employee, Index) => {
-                  return (
-                    <tr key={Index + 1}>
-                      <td>{Index + 1}</td>
-                      <td>{employee.firstName}</td>
-                      <td>{employee.lastName}</td>
-                      <td>{employee.gender}</td>
-                      <td>{employee.employeeId}</td>
-                      <td>{employee.email}</td>
-                      <td>{employee.department}</td>
-                      <td>{employee.address}</td>
-                      <td>{employee.joiningDate}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </Table>
-          </Card.Body>
-        </Card>
-      </Row>
+              <Table
+                responsive
+                bordered
+                hover
+                variant="success"
+                id="table-to-convert"
+              >
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Employee ID</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Address</th>
+                    <th>Joining Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {employeeList.map((employee, Index) => {
+                    return (
+                      <tr key={Index + 1}>
+                        <td>{Index + 1}</td>
+                        <td>{employee.firstName}</td>
+                        <td>{employee.lastName}</td>
+                        <td>{employee.gender}</td>
+                        <td>{employee.employeeId}</td>
+                        <td>{employee.email}</td>
+                        <td>{employee.department}</td>
+                        <td>{employee.address}</td>
+                        <td>{employee.joiningDate}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Row>
+      )}
     </Container>
   );
 }
