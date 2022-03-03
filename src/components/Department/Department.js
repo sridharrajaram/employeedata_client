@@ -42,31 +42,33 @@ function Department() {
       </Row>
       {departmentList.length === 0 ? null : (
         <Row className="mt-5">
-          <Card>
-            <Card.Body>
-              <Card.Header>
-                <b>Department Details</b>
-              </Card.Header>
-              <Table bordered hover variant="success">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Department Name</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {departmentList.map((obj, Index) => {
-                    return (
-                      <tr key={Index + 1}>
-                        <td>{Index + 1}</td>
-                        <td>{obj.departmentName}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </Table>
-            </Card.Body>
-          </Card>
+          <Col xs={6}>
+            <Card>
+              <Card.Body>
+                <Card.Header>
+                  <b>Department Details</b>
+                </Card.Header>
+                <Table responsive bordered hover variant="success">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Department Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {departmentList.map((obj, Index) => {
+                      return (
+                        <tr key={Index + 1}>
+                          <td>{Index + 1}</td>
+                          <td>{obj.departmentName}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </Table>
+              </Card.Body>
+            </Card>
+          </Col>
         </Row>
       )}
     </Container>
