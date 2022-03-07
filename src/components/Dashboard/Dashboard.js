@@ -84,7 +84,7 @@ function Dashboard() {
     <Container>
       <Row className="mt-5">
         <Col xs={3}>
-          <Card style={{ width: "14rem" }}>
+          <Card style={{ width: "100%" }}>
             <Card.Body
               style={{
                 backgroundColor: "tomato",
@@ -98,7 +98,7 @@ function Dashboard() {
           </Card>
         </Col>
         <Col xs={3}>
-          <Card style={{ width: "14rem" }}>
+          <Card style={{ width: "100%" }}>
             <Card.Body
               style={{
                 backgroundColor: "mediumslateblue",
